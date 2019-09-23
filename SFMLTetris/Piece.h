@@ -20,13 +20,17 @@ struct Point
 class Piece 
 {
 private:
-	Point piecesPos[4];
+	Point *piecesPos;
+	int colorNumber;
 public:
 	
-	Piece(int codes[4]);
+	Piece(int codes[4], int x, int y, int colorNum);
+	~Piece();
 
-	Point *getPositions();
-	
+	Point* getPositions();
+	Point* setPositions(Point arr[4]);
+	int getColor();
+
 	void movePieceX(int x);
 	void movePieceY(int y);
 	void rotate();
